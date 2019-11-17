@@ -26,9 +26,7 @@ WHERE
 	TO_CHAR( t1.ORDER_DATE, 'yyyy-MM-dd' ) >= '2019-08-01'  
 GROUP BY
 	TO_CHAR( t1.ORDER_DATE, 'yyyy-MM-dd' );
-	
-	
-	so.ORDER_DATE > to_date ( '2019-08-01', 'yyyy-mm-dd' ) 
+
 -- 方式二
 SELECT
 	TO_CHAR( t1.ORDER_DATE, 'yyyy-MM-dd' ) AS day1,
@@ -61,13 +59,7 @@ SELECT
 	TO_CHAR( t1.ORDER_DATE, 'yyyy-MM' ) AS month1,
 	sum( t1.TOTAL_AMOUNT ) AS total 
 FROM
-	MPLATFORM.b2b_sale_order t1 
-WHERE
-	t1.ID IN ( SELECT DISTINCT SALE_ORDER_ID FROM MPLATFORM.b2b_sale_order_item WHERE SRC_BILL_CODE IS NOT NULL ) 
-	AND t1.SOURCE_SYSTEM = '03' 
-	AND TO_CHAR( t1.ORDER_DATE, 'yyyy-MM-dd' ) >= '2019-08-01' 
-	AND t1.SO_TYPE_ID = '7a08da4f-4bbd-4ad3-9d1e-ab02933335f7' 
-	AND TO_CHAR( t1.ORDER_DATE, 'yyyy' ) != '2609' 
+	MPLATFORM.b2b_sale_order t1 	
 GROUP BY
 	TO_CHAR( t1.ORDER_DATE, 'yyyy-MM' )
 ```
