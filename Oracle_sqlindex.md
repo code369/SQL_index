@@ -41,7 +41,7 @@ GROUP BY
 	TO_CHAR( t1.ORDER_DATE, 'yyyy-MM-dd' );
 ```
 (2)查询每周的合同金额
-```
+```sql
 -- （2）每周
 SELECT
 	TO_CHAR( t1.ORDER_DATE, 'yyyy' ) as year1,
@@ -104,6 +104,7 @@ GROUP BY
 
 ```
 --查询各个品类的销量占比
+
 【oracle版本】
 SELECT NAME AS 品类名称,
 	num AS 销售量,
@@ -126,7 +127,8 @@ GROUP BY
 	) t3 
 ORDER BY
 	占比 DESC;
-	【MySQL版本】
+
+【MySQL版本】
 		
 SELECT 
 	NAME AS品类名称,
